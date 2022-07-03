@@ -2,37 +2,49 @@ import basket from '../images/header/basket.svg';
 import heart from '../images/header/heart.svg';
 import user from '../images/header/user.svg';
 import logo from '../images/header/logo.svg';
+import {
+  HeaderSite,
+  HeaderContainer,
+  Logo,
+  HeaderTitle,
+  ProjectTitle,
+  HeaderText,
+  Users,
+  UsersItem,
+  Basket,
+  BasketText,
+} from './Header.styled';
 
 function Header() {
   return (
-    <header>
-      <div>
-        <div>
+    <HeaderSite>
+      <HeaderContainer>
+        <Logo>
           <img src={logo} alt="logo" />
-          <div>
-            <h1>REACT SNEAKERS</h1>
-            <p>Магазин лучших кроссовок</p>
-          </div>
-        </div>
+          <HeaderTitle>
+            <ProjectTitle>REACT SNEAKERS</ProjectTitle>
+            <HeaderText>Магазин лучших кроссовок</HeaderText>
+          </HeaderTitle>
+        </Logo>
 
-        <ul>
-          <li onClick={() => console.log(12)}>
-            <div>
+        <Users>
+          <UsersItem onClick={() => console.log(12)}>
+            <Basket>
               <img width={18} height={18} src={basket} alt="basket" />
-              <p> 1205 грн.</p>
-            </div>
-          </li>
+              <BasketText> 1205 грн.</BasketText>
+            </Basket>
+          </UsersItem>
 
-          <li>
+          <UsersItem>
             <img width={20} height={20} src={heart} alt="heart" />
-          </li>
+          </UsersItem>
 
-          <li>
+          <UsersItem>
             <img width={20} height={20} src={user} alt="user" />
-          </li>
-        </ul>
-      </div>
-    </header>
+          </UsersItem>
+        </Users>
+      </HeaderContainer>
+    </HeaderSite>
   );
 }
 
