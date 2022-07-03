@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Seanekers/static/css/main.7acaea2f.css",
-    "main.js": "/Seanekers/static/js/main.5dd4369e.js",
+    "main.css": "/Seanekers/static/css/main.d1f39ce7.css",
+    "main.js": "/Seanekers/static/js/main.06a05cd4.js",
     "static/media/logo.svg": "/Seanekers/static/media/logo.dd4e1c171c8fb40cd47b691265c99cae.svg",
     "static/media/heart.svg": "/Seanekers/static/media/heart.25f26213df9d06335ae6995b4517dc9c.svg",
     "static/media/user.svg": "/Seanekers/static/media/user.381202f7e3edbc1a00b14fbd5e529a32.svg",
     "static/media/basket.svg": "/Seanekers/static/media/basket.5113b08fb682dc25f3856ef704a6c05d.svg",
     "index.html": "/Seanekers/index.html",
-    "main.7acaea2f.css.map": "/Seanekers/static/css/main.7acaea2f.css.map",
-    "main.5dd4369e.js.map": "/Seanekers/static/js/main.5dd4369e.js.map"
+    "main.d1f39ce7.css.map": "/Seanekers/static/css/main.d1f39ce7.css.map",
+    "main.06a05cd4.js.map": "/Seanekers/static/js/main.06a05cd4.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.5dd4369e.js"
+    "static/css/main.d1f39ce7.css",
+    "static/js/main.06a05cd4.js"
   ]
 }
