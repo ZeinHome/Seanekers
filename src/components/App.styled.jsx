@@ -8,3 +8,7 @@ export const Wrapper = styled.div`
   max-width: 1080px;
   margin: 0 auto;
 `;
+
+export const Main = styled.main`
+  padding: 40px 60px;
+`;
