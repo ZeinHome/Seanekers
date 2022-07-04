@@ -15,7 +15,7 @@ import {
   BasketText,
 } from './Header.styled';
 
-function Header() {
+function Header({ onOpenCartClick }) {
   return (
     <HeaderSite>
       <HeaderContainer>
@@ -28,7 +28,7 @@ function Header() {
         </Logo>
 
         <Users>
-          <UsersItem onClick={() => console.log(12)}>
+          <UsersItem onClick={onOpenCartClick}>
             <Basket>
               <img width={18} height={18} src={basket} alt="basket" />
               <BasketText> 1205 грн.</BasketText>
