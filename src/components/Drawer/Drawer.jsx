@@ -1,57 +1,71 @@
 import remove from '../images/search/btn-remove.svg';
-// import arrow from '../images/arrow-order.svg';
-import { Overlay, Drawer, DrawerTitle } from './Drawer.styled';
-// { , onRemove, item = [] }
+import arrow from '../images/drawer/arrow-order.svg';
+import HoleBasket from '../HoleBasket/HoleBasket';
+import {
+  Overlay,
+  Drawer,
+  DrawerTitle,
+  Box,
+  Cart,
+  CartItem,
+  CartPrice,
+  CartTitle,
+  CartTotal,
+  ButtonRemove,
+  BoxOrder,
+  Order,
+  OrderItem,
+  OrderTitle,
+  ButtonOrder,
+} from './Drawer.styled';
 
-function Draver({ onClose }) {
+function Draver({ onClose, onRemove, item = [] }) {
   return (
     <Overlay>
       <Drawer>
         <DrawerTitle>
           Корзина <img onClick={onClose} src={remove} alt="close" />{' '}
         </DrawerTitle>
-        {/* {item.length > 0 ? (
-          <div className="box">
-            <ul className="cart">
+        {item.length > 0 ? (
+          <Box>
+            <Cart>
               {item.map(({ title, price, imageUrl, id }) => {
                 return (
-                  <li className="cart__item" key={id}>
+                  <CartItem key={id}>
                     <img width={70} height={70} src={imageUrl} alt={title} />
-                    <div className="cart__price">
-                      <p className="cart__title">{title}</p>
-                      <b className="cart__total">{price} грн.</b>
-                    </div>
-                    <img
+                    <CartPrice>
+                      <CartTitle>{title}</CartTitle>
+                      <CartTotal>{price} грн.</CartTotal>
+                    </CartPrice>
+                    <ButtonRemove
                       onClick={() => onRemove(id)}
                       src={remove}
                       alt="remove"
                     />
-                  </li>
+                  </CartItem>
                 );
               })}
-            </ul>
+            </Cart>
 
-            <div className="box-order">
-              <ul className="order">
-                <li className="order__item">
-                  <p className="order__title">Итого:</p>{' '}
-                  <span>21 498 грн. </span>
-                </li>
-                <li className="order__item">
-                  <p className="order__title">Налог 5%:</p>{' '}
-                  <span>1074 грн.</span>
-                </li>
-              </ul>
+            <BoxOrder>
+              <Order>
+                <OrderItem>
+                  <OrderTitle>Итого:</OrderTitle> <span>21 498 грн. </span>
+                </OrderItem>
+                <OrderItem>
+                  <OrderTitle>Налог 5%:</OrderTitle> <span>1074 грн.</span>
+                </OrderItem>
+              </Order>
 
-              <button button type="submit" className="btn-order">
+              <ButtonOrder type="submit">
                 <p> Оформить заказ</p>
                 <img src={arrow} alt="Arrow" />
-              </button>
-            </div>
-          </div>
+              </ButtonOrder>
+            </BoxOrder>
+          </Box>
         ) : (
           <HoleBasket onClose={onClose} />
-        )} */}
+        )}
       </Drawer>
     </Overlay>
   );

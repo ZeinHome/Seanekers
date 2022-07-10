@@ -38,3 +38,9 @@ export const SearchImageRemove = styled.img`
   top: 10px;
   right: 0;
 `;
+
+export const Gallery = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+`;

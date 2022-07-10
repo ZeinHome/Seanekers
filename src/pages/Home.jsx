@@ -1,18 +1,24 @@
 import search from '../components/images/search/search.svg';
 import remove from '../components/images/search/btn-remove.svg';
+
+import Card from '../components/Card/Card';
 import {
   SectionTitle,
   Nav,
   SearchBlock,
   Search,
   SearchImageRemove,
+  Gallery,
 } from './Home.styled';
-//     item,
-//     onAddCart,
-//     onChangeSearchInput,
-//     onAddToFavorite,
 
-function Home({ searchInput, setSearchInput, onChangeSearchInput }) {
+function Home({
+  item,
+  searchInput,
+  setSearchInput,
+  onChangeSearchInput,
+  onAddCart,
+  onAddToFavorite,
+}) {
   return (
     <section>
       <Nav>
@@ -37,7 +43,7 @@ function Home({ searchInput, setSearchInput, onChangeSearchInput }) {
         </SearchBlock>
       </Nav>
 
-      {/* <ul className="gallery">
+      <Gallery>
         {item
           .filter(item => {
             return item.title.toUpperCase().includes(searchInput.toUpperCase());
@@ -54,7 +60,7 @@ function Home({ searchInput, setSearchInput, onChangeSearchInput }) {
               />
             );
           })}
-      </ul> */}
+      </Gallery>
     </section>
   );
 }
