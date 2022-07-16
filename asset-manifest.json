@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/Seanekers/static/css/main.708649cb.css",
-    "main.js": "/Seanekers/static/js/main.5bea189c.js",
+    "main.css": "/Seanekers/static/css/main.456ffb62.css",
+    "main.js": "/Seanekers/static/js/main.bf49426f.js",
     "static/media/logo.svg": "/Seanekers/static/media/logo.dd4e1c171c8fb40cd47b691265c99cae.svg",
+    "static/media/order-done.png": "/Seanekers/static/media/order-done.28c53daaf8eec94f5429.png",
     "static/media/btn-done.svg": "/Seanekers/static/media/btn-done.890c21e6e092e231b04d7f8d3b23767a.svg",
     "static/media/btn-unlike.svg": "/Seanekers/static/media/btn-unlike.b7857eaf913ead52541f91647497a501.svg",
     "static/media/heart.svg": "/Seanekers/static/media/heart.25f26213df9d06335ae6995b4517dc9c.svg",
@@ -14,11 +15,12 @@
     "static/media/btn-remove.svg": "/Seanekers/static/media/btn-remove.b1fef0aa93fbf25374f4991d23f900d8.svg",
     "static/media/btn-add.svg": "/Seanekers/static/media/btn-add.b88e94c67ea7ac0cfa69033241c96b8c.svg",
     "static/media/arrow-order.svg": "/Seanekers/static/media/arrow-order.fc3222511ec5a224a4abf3bbf4c2566f.svg",
-    "main.708649cb.css.map": "/Seanekers/static/css/main.708649cb.css.map",
-    "main.5bea189c.js.map": "/Seanekers/static/js/main.5bea189c.js.map"
+    "static/media/back.svg": "/Seanekers/static/media/back.ec78391c73aeadc3caa23bc2596d6c2a.svg",
+    "main.456ffb62.css.map": "/Seanekers/static/css/main.456ffb62.css.map",
+    "main.bf49426f.js.map": "/Seanekers/static/js/main.bf49426f.js.map"
   },
   "entrypoints": [
-    "static/css/main.708649cb.css",
-    "static/js/main.5bea189c.js"
+    "static/css/main.456ffb62.css",
+    "static/js/main.bf49426f.js"
   ]
 }
