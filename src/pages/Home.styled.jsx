@@ -15,6 +15,20 @@ export const SectionTitle = styled.h2`
   color: #000000;
 `;
 
+export const FavoritesTitle = styled.h2`
+  display: flex;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.2;
+
+  color: #000000;
+`;
+
+export const FavoritesBack = styled.img`
+  margin-right: 20px;
+`;
+
 export const SearchBlock = styled.main`
   position: relative;
   display: flex;

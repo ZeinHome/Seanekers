@@ -1,4 +1,3 @@
-import holeBasket from '../images/drawer/hole-basket.png';
 import arrow from '../images/drawer/arrow-order.svg';
 import {
   HoleBasketContainer,
@@ -8,14 +7,12 @@ import {
   HoleBasketImage,
 } from './HoleBasket.styled';
 
-function HoleBasket({ onClose }) {
+function HoleBasket({ onClose, title, description, image }) {
   return (
     <HoleBasketContainer>
-      <img src={holeBasket} alt="box" />
-      <HoleBasketTitle>Корзина пустая</HoleBasketTitle>
-      <HoleBasketText>
-        Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.
-      </HoleBasketText>
+      <img src={image} alt="box" />
+      <HoleBasketTitle>{title}</HoleBasketTitle>
+      <HoleBasketText>{description}</HoleBasketText>
       <HoleBasketButton onClick={onClose}>
         {' '}
         <HoleBasketImage src={arrow} alt="arrow" /> Вернуться назад

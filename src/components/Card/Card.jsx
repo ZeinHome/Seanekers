@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../App';
+import ContentLoader from 'react-content-loader';
 import like from '../images/favorite/btn-like.svg';
 import unlike from '../images/favorite/btn-unlike.svg';
 import add from '../images/card/btn-add.svg';
@@ -22,13 +24,14 @@ function Card({
   onAdd,
   onFavorite,
   favoried = false,
+  loading,
 }) {
-  const [isAdded, setIsAdded] = React.useState('false');
+  const { hasCartItem } = useContext(AppContext);
+
   const [isFavorite, setIsFavorite] = React.useState(favoried);
 
   function onAddClick() {
     onAdd({ title, price, imageUrl, id });
-    setIsAdded(!isAdded);
   }
 
   function onFavoriteClick() {
@@ -38,26 +41,45 @@ function Card({
 
   return (
     <GalleryItem>
-      <ButtonFavorite
-        onClick={onFavoriteClick}
-        src={isFavorite ? like : unlike}
-        alt={isFavorite ? 'unlike' : 'like'}
-      />
-      <CardContainer>
-        <img width={133} height={112} src={imageUrl} alt="title" />
-        <GalleryTitle>{title}</GalleryTitle>
-        <CardMenu>
-          <div>
-            <PriceText>Цена:</PriceText>
-            <PriceTotal>{price} грн.</PriceTotal>
-          </div>
-          <ButtonAdd
-            onClick={onAddClick}
-            src={isAdded ? add : done}
-            alt={isAdded ? 'add' : 'done'}
+      {loading ? (
+        <ContentLoader
+          speed={2}
+          width={155}
+          height={250}
+          viewBox="0 0 155 255"
+          backgroundColor="#f3f3f3"
+          foregroundColor="#ecebeb"
+        >
+          <rect x="0" y="0" rx="10" ry="10" width="155" height="155" />
+          <rect x="0" y="167" rx="5" ry="5" width="155" height="15" />
+          <rect x="0" y="187" rx="5" ry="5" width="100" height="15" />
+          <rect x="8" y="229" rx="5" ry="5" width="80" height="25" />
+          <rect x="120" y="225" rx="10" ry="10" width="32" height="32" />
+        </ContentLoader>
+      ) : (
+        <>
+          <ButtonFavorite
+            onClick={onFavoriteClick}
+            src={isFavorite ? like : unlike}
+            alt={isFavorite ? 'unlike' : 'like'}
           />
-        </CardMenu>
-      </CardContainer>
+          <CardContainer>
+            <img width={133} height={112} src={imageUrl} alt="title" />
+            <GalleryTitle>{title}</GalleryTitle>
+            <CardMenu>
+              <div>
+                <PriceText>Цена:</PriceText>
+                <PriceTotal>{price} грн.</PriceTotal>
+              </div>
+              <ButtonAdd
+                onClick={onAddClick}
+                src={hasCartItem(id) ? done : add}
+                alt={hasCartItem(id) ? 'done' : 'add'}
+              />
+            </CardMenu>
+          </CardContainer>
+        </>
+      )}
     </GalleryItem>
   );
 }

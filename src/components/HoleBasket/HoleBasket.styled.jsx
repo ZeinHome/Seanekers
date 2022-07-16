@@ -5,7 +5,7 @@ export const HoleBasketContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 250px;
+  margin-top: 220px;
 `;
 
 export const HoleBasketTitle = styled.h2`
@@ -13,12 +13,12 @@ export const HoleBasketTitle = styled.h2`
   font-weight: 600;
   font-size: 22px;
   line-height: 1.2;
-  margin-bottom: 10px;
+  margin-top: 20px;
 `;
 
 export const HoleBasketText = styled.p`
   width: 285px;
-  margin-bottom: 40px;
+  margin-top: 10px;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -35,6 +35,7 @@ export const HoleBasketButton = styled.button`
   color: #ffffff;
   border: none;
   outline: none;
+  margin-top: 40px;
 `;
 
 export const HoleBasketImage = styled.img`

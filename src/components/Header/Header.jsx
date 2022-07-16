@@ -2,6 +2,8 @@ import basket from '../images/header/basket.svg';
 import heart from '../images/header/heart.svg';
 import user from '../images/header/user.svg';
 import logo from '../images/header/logo.svg';
+import { Link } from 'react-router-dom';
+
 import {
   HeaderSite,
   HeaderContainer,
@@ -19,13 +21,15 @@ function Header({ onOpenCartClick }) {
   return (
     <HeaderSite>
       <HeaderContainer>
-        <Logo>
-          <img src={logo} alt="logo" />
-          <HeaderTitle>
-            <ProjectTitle>REACT SNEAKERS</ProjectTitle>
-            <HeaderText>Магазин лучших кроссовок</HeaderText>
-          </HeaderTitle>
-        </Logo>
+        <Link to="/Seanekers">
+          <Logo>
+            <img src={logo} alt="logo" />
+            <HeaderTitle>
+              <ProjectTitle>REACT SNEAKERS</ProjectTitle>
+              <HeaderText>Магазин лучших кроссовок</HeaderText>
+            </HeaderTitle>
+          </Logo>
+        </Link>
 
         <Users>
           <UsersItem onClick={onOpenCartClick}>
@@ -36,7 +40,9 @@ function Header({ onOpenCartClick }) {
           </UsersItem>
 
           <UsersItem>
-            <img width={20} height={20} src={heart} alt="heart" />
+            <Link to="/favorites">
+              <img width={20} height={20} src={heart} alt="heart" />
+            </Link>
           </UsersItem>
 
           <UsersItem>

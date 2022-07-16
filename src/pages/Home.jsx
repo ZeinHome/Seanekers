@@ -18,7 +18,25 @@ function Home({
   onChangeSearchInput,
   onAddCart,
   onAddToFavorite,
+  isLoading,
 }) {
+  const renderItem = () => {
+    const filtredItem = item.filter(item => {
+      return item.title.toUpperCase().includes(searchInput.toUpperCase());
+    });
+    return (isLoading ? [...Array(10)] : filtredItem).map(item => {
+      return (
+        <Card
+          key={item && item.id}
+          onAdd={obj => onAddCart(obj)}
+          onFavorite={obj => onAddToFavorite(obj)}
+          loading={isLoading}
+          {...item}
+        />
+      );
+    });
+  };
+
   return (
     <section>
       <Nav>
@@ -43,24 +61,7 @@ function Home({
         </SearchBlock>
       </Nav>
 
-      <Gallery>
-        {item
-          .filter(item => {
-            return item.title.toUpperCase().includes(searchInput.toUpperCase());
-          })
-          .map(({ title, price, imageUrl, id }) => {
-            return (
-              <Card
-                key={id}
-                title={title}
-                price={price}
-                imageUrl={imageUrl}
-                onAdd={obj => onAddCart(obj)}
-                onFavorite={obj => onAddToFavorite(obj)}
-              />
-            );
-          })}
-      </Gallery>
+      <Gallery>{renderItem()}</Gallery>
     </section>
   );
 }
