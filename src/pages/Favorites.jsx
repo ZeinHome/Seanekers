@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { AppContext } from '../components/App';
 
 function Favorites() {
-  const { favorites, onAddToFavorite } = useContext(AppContext);
+  const { favorites, onAddToFavorite, onAddCart } = useContext(AppContext);
   return (
     <section>
       <div>
@@ -25,6 +25,7 @@ function Favorites() {
               key={id}
               favoried={true}
               onFavorite={onAddToFavorite}
+              onAdd={obj => onAddCart(obj)}
               {...items}
             />
           );

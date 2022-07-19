@@ -1,6 +1,6 @@
 import search from '../components/images/search/search.svg';
 import remove from '../components/images/search/btn-remove.svg';
-
+import Hero from '../components/Hero/Hero';
 import Card from '../components/Card/Card';
 import {
   SectionTitle,
@@ -24,6 +24,7 @@ function Home({
     const filtredItem = item.filter(item => {
       return item.title.toUpperCase().includes(searchInput.toUpperCase());
     });
+
     return (isLoading ? [...Array(10)] : filtredItem).map(item => {
       return (
         <Card
@@ -39,6 +40,7 @@ function Home({
 
   return (
     <section>
+      <Hero />
       <Nav>
         <SectionTitle>
           {searchInput ? `Поиск по запросу: ${searchInput}` : 'Все кроссовки'}

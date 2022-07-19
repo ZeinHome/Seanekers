@@ -9,6 +9,11 @@ export const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.5);
 
   z-index: 5;
+
+  visibility: ${props => (props.opened ? 'visible' : 'hidden')};
+  opacity: ${props => (props.opened ? 1 : 0)};
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  overflow: hidden;
 `;
 
 export const Drawer = styled.div`
@@ -21,6 +26,8 @@ export const Drawer = styled.div`
   background: #ffffff;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
   padding: 30px;
+  transform: ${props => (props.opened ? 'translateX(0%)' : 'translateX(100%)')};
+  transition: transform 0.3s ease-out;
 `;
 
 export const DrawerTitle = styled.h2`

@@ -3,7 +3,7 @@ import heart from '../images/header/heart.svg';
 import user from '../images/header/user.svg';
 import logo from '../images/header/logo.svg';
 import { Link } from 'react-router-dom';
-
+import { useCard } from '../../hooks/useCard';
 import {
   HeaderSite,
   HeaderContainer,
@@ -18,6 +18,7 @@ import {
 } from './Header.styled';
 
 function Header({ onOpenCartClick }) {
+  const { totalPrice } = useCard();
   return (
     <HeaderSite>
       <HeaderContainer>
@@ -35,7 +36,7 @@ function Header({ onOpenCartClick }) {
           <UsersItem onClick={onOpenCartClick}>
             <Basket>
               <img width={18} height={18} src={basket} alt="basket" />
-              <BasketText> 1205 грн.</BasketText>
+              <BasketText> {totalPrice} грн.</BasketText>
             </Basket>
           </UsersItem>
 
@@ -46,7 +47,9 @@ function Header({ onOpenCartClick }) {
           </UsersItem>
 
           <UsersItem>
-            <img width={20} height={20} src={user} alt="user" />
+            <Link to="/order">
+              <img width={20} height={20} src={user} alt="user" />
+            </Link>
           </UsersItem>
         </Users>
       </HeaderContainer>

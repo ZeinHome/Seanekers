@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../App';
 import ContentLoader from 'react-content-loader';
 import like from '../images/favorite/btn-like.svg';
@@ -21,21 +21,22 @@ function Card({
   price,
   imageUrl,
   id,
+  parentId,
   onAdd,
   onFavorite,
   favoried = false,
   loading,
 }) {
   const { hasCartItem } = useContext(AppContext);
-
-  const [isFavorite, setIsFavorite] = React.useState(favoried);
+  const [isFavorite, setIsFavorite] = useState(favoried);
+  const obj = { title, price, imageUrl, id, parentId: id };
 
   function onAddClick() {
-    onAdd({ title, price, imageUrl, id });
+    onAdd(obj);
   }
 
   function onFavoriteClick() {
-    onFavorite({ title, price, imageUrl, id });
+    onFavorite(obj);
     setIsFavorite(!isFavorite);
   }
 
@@ -58,11 +59,13 @@ function Card({
         </ContentLoader>
       ) : (
         <>
-          <ButtonFavorite
-            onClick={onFavoriteClick}
-            src={isFavorite ? like : unlike}
-            alt={isFavorite ? 'unlike' : 'like'}
-          />
+          {favoried && (
+            <ButtonFavorite
+              onClick={onFavoriteClick}
+              src={isFavorite ? like : unlike}
+              alt={isFavorite ? 'unlike' : 'like'}
+            />
+          )}
           <CardContainer>
             <img width={133} height={112} src={imageUrl} alt="title" />
             <GalleryTitle>{title}</GalleryTitle>
@@ -71,11 +74,13 @@ function Card({
                 <PriceText>Цена:</PriceText>
                 <PriceTotal>{price} грн.</PriceTotal>
               </div>
-              <ButtonAdd
-                onClick={onAddClick}
-                src={hasCartItem(id) ? done : add}
-                alt={hasCartItem(id) ? 'done' : 'add'}
-              />
+              {onAdd && (
+                <ButtonAdd
+                  onClick={onAddClick}
+                  src={hasCartItem(id) ? done : add}
+                  alt={hasCartItem(id) ? 'done' : 'add'}
+                />
+              )}
             </CardMenu>
           </CardContainer>
         </>

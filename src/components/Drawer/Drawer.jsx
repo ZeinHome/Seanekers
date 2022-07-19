@@ -1,11 +1,11 @@
-import { useContext, useState } from 'react';
-import { AppContext } from '../App';
-import axios from 'axios';
 import remove from '../images/search/btn-remove.svg';
 import arrow from '../images/drawer/arrow-order.svg';
 import HoleBasket from '../HoleBasket/HoleBasket';
 import orderDone from '../images/drawer/order-done.png';
 import holeBasket from '../images/drawer/hole-basket.png';
+import axios from 'axios';
+import { useState } from 'react';
+import { useCard } from '../../hooks/useCard';
 import {
   Overlay,
   Drawer,
@@ -26,10 +26,10 @@ import {
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-function Draver({ onClose, onRemove, item = [] }) {
+function Draver({ onClose, onRemove, item = [], isOpened }) {
   const [isOrderComplete, setIsOrderComplete] = useState(false);
   const [orderId, setOrderId] = useState(null);
-  const { cartItem, setCartItem } = useContext(AppContext);
+  const { cartItem, setCartItem, totalPrice } = useCard();
 
   const onClickOrder = async () => {
     try {
@@ -44,7 +44,7 @@ function Draver({ onClose, onRemove, item = [] }) {
 
       for (let i = 0; i < cartItem.length; i++) {
         const item = cartItem[i];
-        console.log(item);
+
         await axios.delete(
           'https://62b034b1b0a980a2ef4d39ed.mockapi.io/cart/' + item.id
         );
@@ -54,12 +54,14 @@ function Draver({ onClose, onRemove, item = [] }) {
       alert(`не удалось сделать заказ ${error}`);
     }
   };
+
   return (
-    <Overlay>
-      <Drawer>
+    <Overlay opened={isOpened}>
+      <Drawer opened={isOpened}>
         <DrawerTitle>
           Корзина <img onClick={onClose} src={remove} alt="close" />{' '}
         </DrawerTitle>
+
         {item.length > 0 ? (
           <Box>
             <Cart>
@@ -84,10 +86,12 @@ function Draver({ onClose, onRemove, item = [] }) {
             <BoxOrder>
               <Order>
                 <OrderItem>
-                  <OrderTitle>Итого:</OrderTitle> <span>21 498 грн. </span>
+                  <OrderTitle>Итого:</OrderTitle>
+                  <span>{totalPrice} грн. </span>
                 </OrderItem>
                 <OrderItem>
-                  <OrderTitle>Налог 5%:</OrderTitle> <span>1074 грн.</span>
+                  <OrderTitle>Налог 5%:</OrderTitle>{' '}
+                  <span>{Math.round(totalPrice * 0.05)} грн.</span>
                 </OrderItem>
               </Order>
 
