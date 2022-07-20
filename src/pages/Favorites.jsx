@@ -26,6 +26,7 @@ function Favorites() {
               favoried={true}
               onFavorite={onAddToFavorite}
               onAdd={obj => onAddCart(obj)}
+              noChangeFavoried={false}
               {...items}
             />
           );

@@ -21,11 +21,11 @@ function Card({
   price,
   imageUrl,
   id,
-  parentId,
   onAdd,
   onFavorite,
   favoried = false,
   loading,
+  noChangeFavoried = true,
 }) {
   const { hasCartItem } = useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(favoried);
@@ -37,7 +37,9 @@ function Card({
 
   function onFavoriteClick() {
     onFavorite(obj);
-    setIsFavorite(!isFavorite);
+    if (noChangeFavoried) {
+      setIsFavorite(!isFavorite);
+    }
   }
 
   return (
@@ -59,7 +61,7 @@ function Card({
         </ContentLoader>
       ) : (
         <>
-          {favoried && (
+          {onFavorite && (
             <ButtonFavorite
               onClick={onFavoriteClick}
               src={isFavorite ? like : unlike}

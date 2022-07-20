@@ -101,6 +101,7 @@ export const App = () => {
           `https://62b034b1b0a980a2ef4d39ed.mockapi.io/favorite`,
           obj
         );
+
         setFavorites(prev => [...prev, data]);
       }
     } catch (error) {

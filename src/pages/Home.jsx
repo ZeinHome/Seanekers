@@ -30,7 +30,7 @@ function Home({
         <Card
           key={item && item.id}
           onAdd={obj => onAddCart(obj)}
-          onFavorite={obj => onAddToFavorite(obj)}
+          onFavorite={onAddToFavorite}
           loading={isLoading}
           {...item}
         />
