@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Seanekers/static/css/main.456ffb62.css",
+    "main.css": "/Seanekers/static/css/main.ccc42c88.css",
     "main.js": "/Seanekers/static/js/main.44c6da4f.js",
     "static/media/frogBig.jpg": "/Seanekers/static/media/frogBig.f7f499181477d6f9aeb7.jpg",
     "static/media/logo.svg": "/Seanekers/static/media/logo.dd4e1c171c8fb40cd47b691265c99cae.svg",
@@ -17,11 +17,11 @@
     "static/media/btn-add.svg": "/Seanekers/static/media/btn-add.b88e94c67ea7ac0cfa69033241c96b8c.svg",
     "static/media/arrow-order.svg": "/Seanekers/static/media/arrow-order.fc3222511ec5a224a4abf3bbf4c2566f.svg",
     "static/media/back.svg": "/Seanekers/static/media/back.ec78391c73aeadc3caa23bc2596d6c2a.svg",
-    "main.456ffb62.css.map": "/Seanekers/static/css/main.456ffb62.css.map",
+    "main.ccc42c88.css.map": "/Seanekers/static/css/main.ccc42c88.css.map",
     "main.44c6da4f.js.map": "/Seanekers/static/js/main.44c6da4f.js.map"
   },
   "entrypoints": [
-    "static/css/main.456ffb62.css",
+    "static/css/main.ccc42c88.css",
     "static/js/main.44c6da4f.js"
   ]
 }
