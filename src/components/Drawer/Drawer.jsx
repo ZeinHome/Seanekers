@@ -29,7 +29,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 function Draver({ onClose, onRemove, item = [], isOpened }) {
   const [isOrderComplete, setIsOrderComplete] = useState(false);
   const [orderId, setOrderId] = useState(null);
-  const { cartItem, setCartItem, totalPrice } = useCard();
+  const { cartItem, setCartItem, totalPrice, setCartOpen } = useCard();
 
   const onClickOrder = async () => {
     try {
@@ -56,8 +56,8 @@ function Draver({ onClose, onRemove, item = [], isOpened }) {
   };
 
   return (
-    <Overlay opened={isOpened}>
-      <Drawer opened={isOpened}>
+    <Overlay onClick={() => setCartOpen(false)} opened={isOpened}>
+      <Drawer onClick={e => e.stopPropagation()} opened={isOpened}>
         <DrawerTitle>
           Корзина <img onClick={onClose} src={remove} alt="close" />{' '}
         </DrawerTitle>
