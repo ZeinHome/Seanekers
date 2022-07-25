@@ -26,10 +26,10 @@ import {
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-function Draver({ onClose, onRemove, item = [], isOpened }) {
+function Draver({ onClose, onRemove, item = [], isOpened, setCartOpen }) {
   const [isOrderComplete, setIsOrderComplete] = useState(false);
   const [orderId, setOrderId] = useState(null);
-  const { cartItem, setCartItem, totalPrice, setCartOpen } = useCard();
+  const { cartItem, setCartItem, totalPrice } = useCard();
 
   const onClickOrder = async () => {
     try {

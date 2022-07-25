@@ -131,6 +131,7 @@ export const App = () => {
           item={cartItem}
           onRemove={onRemoveCart}
           isOpened={cartOpen}
+          setCartOpen={setCartOpen}
         />
         <Main>
           <Routes>
