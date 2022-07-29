@@ -21,7 +21,7 @@ export const Drawer = styled.div`
   flex-direction: column;
   position: absolute;
   width: 420px;
-  height: 94%;
+  height: 100%;
   right: 0px;
   background: #ffffff;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
