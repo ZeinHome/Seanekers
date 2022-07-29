@@ -4,7 +4,7 @@ import HoleBasket from '../HoleBasket/HoleBasket';
 import orderDone from '../images/drawer/order-done.png';
 import holeBasket from '../images/drawer/hole-basket.png';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCard } from '../../hooks/useCard';
 import {
   Overlay,
@@ -30,6 +30,14 @@ function Draver({ onClose, onRemove, item = [], isOpened, setCartOpen }) {
   const [isOrderComplete, setIsOrderComplete] = useState(false);
   const [orderId, setOrderId] = useState(null);
   const { cartItem, setCartItem, totalPrice } = useCard();
+
+  useEffect(() => {
+    if (isOpened === true) {
+      document.body.classList.add('drawer-open');
+    } else {
+      document.body.classList.remove('drawer-open');
+    }
+  }, [isOpened]);
 
   const onClickOrder = async () => {
     try {
