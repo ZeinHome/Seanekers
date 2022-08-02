@@ -5,7 +5,7 @@ export const Overlay = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 95%;
   background: rgba(0, 0, 0, 0.5);
 
   z-index: 5;
@@ -13,7 +13,6 @@ export const Overlay = styled.div`
   visibility: ${props => (props.opened ? 'visible' : 'hidden')};
   opacity: ${props => (props.opened ? 1 : 0)};
   transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
-  overflow: hidden;
 `;
 
 export const Drawer = styled.div`
